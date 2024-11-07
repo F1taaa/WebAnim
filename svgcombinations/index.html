@@ -3,275 +3,85 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title> SVG Art Combinations</title>
+    <title>SVG Art</title>
     <style>
       body {
         display: flex;
-        gap: 10px;
-        background-color: #f0f0f0;
-        padding: 20px;
         justify-content: center;
         align-items: center;
-        flex-wrap: wrap;
-        font-family: Arial, sans-serif;
+        height: 100vh;
+        background-color: #f0f0f0;
+        margin: 0;
       }
       svg {
-        border: 2px solid #ccc;
+        width: 400px;
+        height: 400px;
         background-color: #fff;
-        border-radius: 10px;
-        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-        transition: transform 0.3s ease;
-      }
-      svg:hover {
-        transform: scale(1.05);
+        border: 3px solid #ccc;
+        border-radius: 15px;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
       }
     </style>
   </head>
   <body>
-    <!-- 1. Layered Lines and Circles with Gradient -->
-    <svg width="200" height="300">
-      <defs>
-        <linearGradient id="lineGradient1" x1="0%" y1="0%" x2="100%" y2="100%">
-          <stop offset="0%" style="stop-color: coral; stop-opacity: 1" />
-          <stop
-            offset="100%"
-            style="stop-color: rgba(255, 127, 80, 0.5); stop-opacity: 1"
-          />
-        </linearGradient>
-      </defs>
-      <line
-        x1="20"
-        y1="30"
-        x2="180"
-        y2="30"
-        stroke="url(#lineGradient1)"
-        stroke-width="6"
-        stroke-dasharray="10,5"
-      />
-      <circle
-        cx="100"
-        cy="100"
-        r="25"
-        fill="teal"
-        filter="url(#shadowFilter)"
-      />
-      <circle cx="60" cy="180" r="20" fill="teal" opacity="0.8" />
-      <circle cx="140" cy="180" r="20" fill="teal" opacity="0.8" />
-      <circle cx="100" cy="250" r="15" fill="teal" opacity="0.6" />
-      <defs>
-        <filter id="shadowFilter">
-          <feDropShadow
-            dx="2"
-            dy="2"
-            stdDeviation="3"
-            flood-color="rgba(0,0,0,0.3)"
-          />
-        </filter>
-      </defs>
-    </svg>
-
-    <!-- 2. Textured Rectangles and Circles -->
-    <svg width="200" height="300">
-      <defs>
-        <pattern
-          id="diagonalPattern"
-          patternUnits="userSpaceOnUse"
-          width="4"
-          height="4"
-        >
-          <path
-            d="M-1,1 l2,-2 M0,4 l4,-4 M3,5 l2,-2"
-            style="stroke: teal; stroke-width: 1"
-          />
-        </pattern>
-      </defs>
+    <svg viewBox="0 0 400 400">
+      <!-- Background Rectangle -->
       <rect
-        x="30"
-        y="50"
-        width="140"
-        height="60"
-        fill="url(#diagonalPattern)"
-        rx="10"
-        ry="10"
+        x="25"
+        y="25"
+        width="350"
+        height="350"
+        fill="#f0f0f0"
+        stroke="#6b7280"
+        stroke-width="6"
+        rx="20"
       />
-      <circle cx="70" cy="180" r="25" fill="coral" filter="url(#glowFilter)" />
-      <circle cx="130" cy="180" r="25" fill="coral" filter="url(#glowFilter)" />
-      <circle cx="50" cy="250" r="15" fill="coral" opacity="0.7" />
-      <circle cx="150" cy="250" r="15" fill="coral" opacity="0.7" />
-      <defs>
-        <filter id="glowFilter">
-          <feGaussianBlur class="blurFilter" stdDeviation="3" />
-          <feComponentTransfer>
-            <feFuncA type="linear" slope="0.5" />
-          </feComponentTransfer>
-        </filter>
-      </defs>
-    </svg>
 
-    <!-- 3. Wavy Polyline with Rhythmic Circles -->
-    <svg width="200" height="300">
-      <path
-        d="M20,50 Q60,100 180,100 Q100,150 20,150 Q60,200 180,200 Q100,250 20,250"
+      <!-- Central Circle -->
+      <circle cx="200" cy="200" r="60" fill="#f97316" />
+      <circle cx="200" cy="200" r="45" fill="#fff" />
+      <circle cx="200" cy="200" r="30" fill="#f97316" />
+
+      <!-- Ellipse -->
+      <ellipse cx="200" cy="290" rx="80" ry="20" fill="#14b8a6" opacity="0.5" />
+
+      <!-- Polyline -->
+      <polyline
+        points="60,330 200,200 340,330"
         fill="none"
-        stroke="coral"
-        stroke-width="4"
+        stroke="#f97316"
+        stroke-width="6"
+        stroke-linecap="round"
         stroke-linejoin="round"
       />
-      <circle cx="50" cy="70" r="10" fill="teal" opacity="0.9">
-        <animate
-          attributeName="r"
-          values="10;15;10"
-          dur="2s"
-          repeatCount="indefinite"
-        />
-      </circle>
-      <circle cx="150" cy="120" r="10" fill="teal" opacity="0.7">
-        <animate
-          attributeName="r"
-          values="10;15;10"
-          dur="2s"
-          repeatCount="indefinite"
-          begin="0.5s"
-        />
-      </circle>
-      <circle cx="50" cy="170" r="10" fill="teal" opacity="0.8">
-        <animate
-          attributeName="r"
-          values="10;15;10"
-          dur="2s"
-          repeatCount="indefinite"
-          begin="1s"
-        />
-      </circle>
-      <circle cx="150" cy="220" r="10" fill="teal" opacity="0.6">
-        <animate
-          attributeName="r"
-          values="10;15;10"
-          dur="2s"
-          repeatCount="indefinite"
-          begin="1.5s"
-        />
-      </circle>
-    </svg>
 
-    <!-- 4. Layered Polygon with Translucent Ellipses -->
-    <svg width="200" height="300">
+      <!-- Polygon -->
       <polygon
-        points="50,80 150,80 180,150 100,250 20,150"
-        fill="teal"
-        stroke="coral"
-        stroke-width="3"
-        opacity="0.9"
+        points="150,100 200,150 250,100"
+        fill="#14b8a6"
+        stroke="#6b7280"
+        stroke-width="4"
       />
-      <ellipse cx="100" cy="150" rx="30" ry="50" fill="coral" opacity="0.4" />
-      <ellipse cx="100" cy="150" rx="15" ry="25" fill="white" opacity="0.6" />
-      <path
-        d="M100,80 Q80,120 100,150 Q120,180 100,250"
-        fill="none"
-        stroke="rgba(255,127,80,0.3)"
-        stroke-width="2"
-        stroke-dasharray="5,5"
-      />
-    </svg>
 
-    <!-- 5. Dynamic Interaction of Shapes -->
-    <svg width="200" height="300">
-      <defs>
-        <linearGradient id="lineGradient2" x1="0%" y1="0%" x2="100%" y2="100%">
-          <stop offset="0%" style="stop-color: coral; stop-opacity: 1" />
-          <stop
-            offset="100%"
-            style="stop-color: rgba(255, 127, 80, 0.5); stop-opacity: 1"
-          />
-        </linearGradient>
-      </defs>
+      <!-- Lines -->
       <line
-        x1="20"
-        y1="50"
-        x2="180"
-        y2="50"
-        stroke="url(#lineGradient2)"
-        stroke-width="5"
+        x1="25"
+        y1="200"
+        x2="375"
+        y2="200"
+        stroke="#6b7280"
+        stroke-width="4"
+        stroke-dasharray="10 10"
       />
-      <rect
-        x="60"
-        y="80"
-        width="80"
-        height="150"
-        fill="teal"
-        rx="15"
-        ry="15"
-        opacity="0.9"
+      <line
+        x1="200"
+        y1="25"
+        x2="200"
+        y2="375"
+        stroke="#6b7280"
+        stroke-width="4"
+        stroke-dasharray="10 10"
       />
-      <circle
-        cx="100"
-        cy="180"
-        r="25"
-        fill="coral"
-        filter="url(#shadowFilter2)"
-      >
-        <animate
-          attributeName="cy"
-          values="180;190;180"
-          dur="3s"
-          repeatCount="indefinite"
-        />
-      </circle>
-      <circle cx="100" cy="250" r="10" fill="white" opacity="0.8" />
-      <defs>
-        <filter id="shadowFilter2">
-          <feDropShadow
-            dx="1"
-            dy="2"
-            stdDeviation="2"
-            flood-color="rgba(0,0,0,0.2)"
-          />
-        </filter>
-      </defs>
-    </svg>
-
-    <!-- 6. Interconnected Polygonal Forms -->
-    <svg width="200" height="300">
-      <polyline
-        points="20,100 100,50 180,100 100,150 20,100"
-        fill="none"
-        stroke="coral"
-        stroke-width="3"
-        opacity="0.8"
-      />
-      <polygon points="50,200 150,200 125,250 75,250" fill="teal" opacity="0.9">
-        <animate
-          attributeName="points"
-          values="
-            50,200 150,200 125,250 75,250;
-            40,210 160,190 130,260 70,260;
-            50,200 150,200 125,250 75,250
-          "
-          dur="4s"
-          repeatCount="indefinite"
-        />
-      </polygon>
-      <polygon points="100,220 130,270 70,270" fill="coral" opacity="0.7" />
-    </svg>
-
-    <!-- 7.  Multiple Elements -->
-    <svg width="200" height="300">
-      <circle cx="50" cy="50" r="25" fill="coral" opacity="0.8" />
-      <rect x="80" y="30" width="60" height="40" fill="teal" rx="5" ry="5" />
-      <path
-        d="M20,100 Q100,120 180,120 Q50,200 100,200 Q150,250 20,250"
-        fill="none"
-        stroke="coral"
-        stroke-width="2"
-        stroke-linecap="round"
-        opacity="0.7"
-      />
-      <polygon
-        points="50,250 150,250 125,290 75,290"
-        fill="teal"
-        opacity="0.7"
-      />
-      <ellipse cx="100" cy="180" rx="25" ry="15" fill="coral" opacity="0.5" />
     </svg>
   </body>
 </html>
